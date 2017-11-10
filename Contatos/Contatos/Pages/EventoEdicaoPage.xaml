@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:usercontrols="clr-namespace:Contatos.UserControls"
+             x:Class="Contatos.Pages.EventoEdicaoPage">
+    <ContentPage.Content>
+        <usercontrols:FormularioUc>
+
+            <usercontrols:FormularioUc.Cabecalho>
+                <Label Text="Eventos" 
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
+                       
+            </usercontrols:FormularioUc.Cabecalho>
+            
+            <usercontrols:FormularioUc.Conteudo>
+                
+                <ScrollView IsClippedToBounds="True">
+                    
+                    <Grid x:Name="gdConteudo" Padding="16">
+                        
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                                                        
+                        </Grid.RowDefinitions>
+                        
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Nome"
+                               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <Entry x:Name="txtNome"
+                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                               Placeholder="Digite o nome"
+                   Text="{Binding Nome}"/>
+                        
+                        
+
+                        <Label Text="Hora Inicio"
+                               Grid.Row="2" Grid.Column="0"/>
+                        <TimePicker x:Name="HoraInicioPicker"
+                                    Grid.Row="3" Grid.Column="0"
+                                    Time="{Binding HoraInicio}" />
+
+                        <Label Text="Hora Termino"
+                               Grid.Row="2" Grid.Column="1"/>
+                        <TimePicker x:Name="HoraTerminoPicker"
+                                    Grid.Row="3" Grid.Column="1"
+                                    Time="{Binding HoraTermino}" />
+
+
+                        <Label Text="Local"
+                               Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"/>
+                               
+                        <Entry  Placeholder="Digite o local"
+                               Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"     
+                   Text="{Binding Local}"/>
+                        
+                        
+                                                                        
+                        <Label Text="Data"
+                               Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <DatePicker x:Name="DataPicker" 
+                                    Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
+                        Date="{Binding Data}"/>
+                                                       
+                        <Label Text="Observação"
+                               Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <Editor x:Name="txtObservacao" 
+                                Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2"
+                    HeightRequest="80"
+                    Text="{Binding Anotacoes}"/>
+
+                        <Label Text="Status" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <Picker x:Name="PickerStatus" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" SelectedItem="{Binding Status}" HorizontalOptions="FillAndExpand">
+                            <Picker.Items>
+                                <x:String>Ocupado</x:String>
+                                <x:String>Disponivel</x:String>
+                                <x:String>Provisório</x:String>
+                                <x:String>Atividade Externa</x:String>
+
+                            </Picker.Items>
+                        </Picker>
+                    </Grid>
+                </ScrollView>
+            </usercontrols:FormularioUc.Conteudo>
+            <usercontrols:FormularioUc.Rodape>
+                <StackLayout>
+
+                <Label Text="Edição de Eventos" />
+                <StackLayout Margin="20"
+                     VerticalOptions="StartAndExpand">
+                   
+                    <Button x:Name="btnSalvar" 
+                    Text="Salvar"
+                    Clicked="btnSalvar_Clicked"/>
+
+                    <Button x:Name="btnCancelar"
+                    Text="Cancelar"
+                    Clicked="btnCancelar_Clicked"/>
+
+                </StackLayout>
+                    
+            </StackLayout>
+            </usercontrols:FormularioUc.Rodape>
+        </usercontrols:FormularioUc>
+    </ContentPage.Content>
+</ContentPage>
