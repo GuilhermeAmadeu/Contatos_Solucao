@@ -14,7 +14,9 @@ namespace Contatos.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CameraPage : ContentPage
 	{
-		public CameraPage ()
+        private MediaFile arquivoMidia;
+
+        public CameraPage ()
 		{
 			InitializeComponent ();
 		}
@@ -24,7 +26,7 @@ namespace Contatos.Pages
 
         }
 
-        private void tprCamera_Tapped(object sender, EventArgs e)
+        private async void tprCamera_Tapped(object sender, EventArgs e)
         {
             //pega a foto tirada
             arquivoMidia = await Contatos.Helpers.CameraHelper.TirarFotoAsync("foto"); 
