@@ -9,6 +9,7 @@
         <ToolbarItem Name="tbiNovo"
                      Order="Primary"
                      Text="Novo"
+                     Icon="ic_add_circle.png"
                      Priority="0"
                      Clicked="tbiNovo_Clicked"/>
     </ContentPage.ToolbarItems>

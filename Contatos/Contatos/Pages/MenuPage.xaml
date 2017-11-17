@@ -46,7 +46,7 @@
                          BackgroundColor="{DynamicResource corClara}">
                 <Image Source="home.png" />
                 <Label Text="HOME" 
-                       HorizontalOptions="CenterAndExpand"
+                       HorizontalOptions="StartAndExpand"
                        Style="{DynamicResource tituloStyle}"/>
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer x:Name="tgrVoltar"
@@ -62,7 +62,7 @@
                       VerticalOptions="StartAndExpand"
                       SeparatorVisibility="None"
                       HasUnevenRows="True">
-                                          
+                                                               
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -72,7 +72,8 @@
                                 <Label Text="{Binding Titulo }" 
                                        HorizontalOptions="FillAndExpand"
                                        VerticalOptions="Center"
-                                       Style="{DynamicResource tituloStyle}"/>
+                                       Style="{DynamicResource FonteMenor}"
+                                       TextColor="White"/>
                                 <Image Source="{Binding Imagem }" 
                                        HeightRequest="32"
                                        WidthRequest="32"
