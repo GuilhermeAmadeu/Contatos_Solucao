@@ -43,6 +43,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CameraHelper.cs" />
+    <Compile Include="IFileHelper.cs" />
     <Compile Include="Models\Evento.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Pessoa.cs" />
