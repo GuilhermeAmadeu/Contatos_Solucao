@@ -42,13 +42,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\EventoRepository.cs" />
     <Compile Include="Data\PessoaRepository.cs" />
     <Compile Include="Data\RepositoyBase.cs" />
+    <Compile Include="Data\UsuarioRepository.cs" />
     <Compile Include="Helpers\CameraHelper.cs" />
     <Compile Include="IFileHelper.cs" />
     <Compile Include="Models\Evento.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Pessoa.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Pages\CameraPage.xaml.cs">
       <DependentUpon>CameraPage.xaml</DependentUpon>
     </Compile>

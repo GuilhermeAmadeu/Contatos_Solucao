@@ -16,24 +16,26 @@
 
 
     <ContentPage.Content>
-        <StackLayout>
-            <ListView x:Name="ListaEdicao" ItemTapped="ListaEdicao_ItemTapped" HasUnevenRows="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding Nome}" />
-                                <Label Text="{Binding Local}" />
-                                <Label Text="{Binding Data}" />
-                                <Label Text="{Binding HoraInicio}" />
-                                <Label Text="{Binding HoraTermino}" />
-                                <Label Text="{Binding Anotacoes}" />
-                                <Label Text="{Binding Status}" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+        <!--o titulo q fica em cima da lista-->
+        <StackLayout Padding = "10">
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <Label Text="Lista de Eventos" />
+
+                <ListView x:Name="ListaEdicao" ItemTapped="ListaEdicao_ItemTapped" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding Nome}" />
+                                    <Label Text="{Binding Local}" />
+                                    <Label Text="{Binding Anotacoes}" />
+                                    <Label Text="{Binding Status}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

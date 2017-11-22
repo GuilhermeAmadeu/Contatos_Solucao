@@ -31,13 +31,7 @@ namespace Contatos.ViewModels
                 var existente = Lista.Where(r => r.Id == item.Id)
                     .FirstOrDefault();
 
-                if (existente != null)
-                {
-                    // Remover e acrescentar
-                    Lista.Remove(existente);
-                    Lista.Add(item);
-
-                }
+                
             }
         }
     }

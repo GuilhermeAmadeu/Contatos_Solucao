@@ -36,7 +36,8 @@ namespace Contatos.Pages
             {
                 Nome = "Fulano",
                 Email = "fulano@mail.com",
-                Telefone = "1234"
+                Telefone = "1234",
+                Observacao = "Primeiro APP"
             };
 
             // Adicionar item na lista

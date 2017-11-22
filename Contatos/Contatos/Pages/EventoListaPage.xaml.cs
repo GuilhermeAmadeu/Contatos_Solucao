@@ -39,14 +39,12 @@ namespace Contatos.Pages
             // Adicionar item na lista
             vm.Salvar(e1);
 
-
-
         }
 
-        private async void ListaEdicao_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void tbiNovo_Clicked(object sender, EventArgs e)
         {
             // Obter o objeto selecionado
-            var evento = (Evento)e.Item;
+            var evento = new Evento();
 
             // Criar a página de edição
             var pagina = new EventoEdicaoPage();
@@ -57,13 +55,11 @@ namespace Contatos.Pages
 
             // Chamar a página
             await Navigation.PushAsync(pagina);
-
         }
-
-        private async void tbiNovo_Clicked(object sender, EventArgs e)
+        private async void ListaEdicao_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            // Criar o objeto de binding
-            var evento = new Evento();
+            // Obter o objeto selecionado
+            var evento = (Evento)e.Item;
 
             // Criar a página de edição
             var pagina = new EventoEdicaoPage();
@@ -74,6 +70,8 @@ namespace Contatos.Pages
 
             // Chamar a página
             await Navigation.PushAsync(pagina);
+
+
         }
     }
 }

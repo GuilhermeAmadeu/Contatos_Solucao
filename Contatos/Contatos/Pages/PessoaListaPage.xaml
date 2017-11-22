@@ -17,12 +17,12 @@
 
 
     <ContentPage.Content>
+        <!--o titulo q fica em cima da lista-->
         <StackLayout Padding="10">
             <StackLayout HorizontalOptions="FillAndExpand">
                 <Label Text="Lista de Pessoas" />
 
-                <ListView x:Name="lvPessoa"
-                          ItemTapped="lvPessoa_ItemTapped">
+                <ListView x:Name="lvPessoa" ItemTapped="lvPessoa_ItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -30,12 +30,12 @@
                                     <Label Text="{Binding Nome}"/>
                                     <Label Text="{Binding Email}"/>
                                     <Label Text="{Binding Telefone}"/>
+                                    <Label Text="{Binding Observacao}"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
