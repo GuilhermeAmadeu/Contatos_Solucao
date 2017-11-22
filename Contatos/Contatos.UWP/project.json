@@ -1,6 +1,7 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
+    "sqlite-net-pcl": "1.4.118",
     "Xam.Plugin.Media": "3.0.1",
     "Xamarin.Forms": "2.4.0.282"
   },
