@@ -11,13 +11,13 @@ namespace Contatos.Models
     public class Evento : INotifyPropertyChanged
     {
         private int id;
-        public string nome;
-        public string local;
-        public DateTime data;
-        public TimeSpan horainicio;
-        public TimeSpan horatermino;
-        public string anotacoes;
-        public string status;
+        private string nome;
+        private string local;
+        private DateTime data;
+        private TimeSpan horainicio;
+        private TimeSpan horatermino;
+        private string anotacoes;
+        private string status;
 
         
 
@@ -33,7 +33,100 @@ namespace Contatos.Models
                 OnPropertyChanged();
             }
         }
+        
 
+        public string Nome
+        {
+            get
+            {
+                return Nome;
+            }
+            set
+            {
+                Nome = value;
+                OnPropertyChanged();
+            }
+        }
+                                
+
+        public string Local
+        {
+            get
+            {
+                return Local;
+            }
+            set
+            {
+                Local = value;
+                OnPropertyChanged();
+            }
+        }
+        
+
+        public DateTime Data
+        {
+            get
+            {
+                return data;
+            }
+            set
+            {
+                data = value;
+                OnPropertyChanged();
+            }
+        }
+        
+        public TimeSpan HoraInicio
+        {
+            get
+            {
+                return horainicio;
+            }
+            set
+            {
+                horainicio = value;
+                OnPropertyChanged();
+            }
+        }
+        
+        public TimeSpan HoraTermino
+        {
+            get
+            {
+                return horatermino;
+            }
+            set
+            {
+                horatermino = value;
+                OnPropertyChanged();
+            }
+        }
+        
+        public string Anotacoes
+        {
+            get
+            {
+                return anotacoes;
+            }
+            set
+            {
+                anotacoes = value;
+                OnPropertyChanged();
+            }
+        }
+        
+        public string Status
+        {
+            get
+            {
+                return status;
+            }
+            set
+            {
+                status = value;
+                OnPropertyChanged();
+            }
+        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;
