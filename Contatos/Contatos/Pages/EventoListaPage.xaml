@@ -21,7 +21,7 @@
             <StackLayout HorizontalOptions="FillAndExpand">
                 <Label Text="Lista de Eventos" />
 
-                <ListView x:Name="ListaEdicao" ItemTapped="ListaEdicao_ItemTapped" HasUnevenRows="True">
+                <ListView x:Name="lvEdicao" ItemTapped="ListaEdicao_ItemTapped" HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

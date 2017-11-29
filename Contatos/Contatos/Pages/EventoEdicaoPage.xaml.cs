@@ -14,25 +14,23 @@ namespace Contatos.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EventoEdicaoPage : ContentPage
     {
-        public EventoViewModelMem ViewModel { get; set; }
+        public EventHandler<ItemEventArgs> Salvando { get; set; }
+        public EventHandler<ItemEventArgs> Excluindo { get; set; }
+        
         public EventoEdicaoPage()
         {
             InitializeComponent();
 
         }
 
-        private async void btnSalvar_Clicked(object sender, EventArgs e)
+        private void btnSalvar_Clicked(object sender, EventArgs e)
         {
+            // Fazer a operação de conversão
             Evento item = (Evento)this.BindingContext;
 
-
-            ViewModel.Salvar(item);
-
-
-            await Navigation.PopAsync();
-
-
-
+            //executar o evento de salvar
+            Salvando?.Invoke(sender, new ItemEventArgs(item));
+            
         }
 
         private async void btnCancelar_Clicked(object sender, EventArgs e)

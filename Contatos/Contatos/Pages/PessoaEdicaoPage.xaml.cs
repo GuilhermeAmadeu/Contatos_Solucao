@@ -14,7 +14,9 @@ namespace Contatos.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PessoaEdicaoPage : ContentPage
     {
-        public PessoaViewModelMem ViewModel { get; set; }
+        //Declarar os Eventos 
+        public EventHandler<ItemEventArgs> Salvando { get; set; }
+        public EventHandler<ItemEventArgs> Excluindo { get; set; }
 
         public PessoaEdicaoPage()
         {
@@ -35,32 +37,14 @@ namespace Contatos.Pages
             //vm = new PessoaViewModelMem();
         }
 
-        private async void btnSalvar_Clicked(object sender, EventArgs e)
+        private void btnSalvar_Clicked(object sender, EventArgs e)
         {
-            //DisplayAlert(
-            //    "Contatos",
-            //    "Nome do contato: " + txtNome.Text, 
-            //    "Fechar");
-
-            
-            
-            
+                       
             // Fazer a operação de conversão
             Pessoa item = (Pessoa)this.BindingContext;
 
-            // Adicionar na lista
-            ViewModel.Salvar(item);
-
-
-
-            //int qtditens = vm.Lista.Count();
-
-            //DisplayAlert("Número de registros",
-            //    qtditens.ToString(),
-            //    "Fechar");
-
-            // Retornar para a página anterior
-            await Navigation.PopAsync();
+            //executar o evento de salvar
+            Salvando?.Invoke(sender, new ItemEventArgs(item));
         }
 
         private async void btnCancelar_Clicked(object sender, EventArgs e)

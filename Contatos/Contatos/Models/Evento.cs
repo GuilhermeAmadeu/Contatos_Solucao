@@ -10,7 +10,7 @@ namespace Contatos.Models
 {
     public class Evento : INotifyPropertyChanged
     {
-        private int id;
+        private Guid id;
         private string nome;
         private string local;
         private DateTime data;
@@ -21,7 +21,7 @@ namespace Contatos.Models
 
         
 
-        public int Id
+        public Guid Id
         {
             get
             {

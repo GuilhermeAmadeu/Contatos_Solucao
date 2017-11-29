@@ -1,13 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Contatos.Models
 {
     public class Usuario
     {
-        public string Nome { get; set; }
+        private string nome;
+
+        public string Nome
+        {
+            get
+            {
+                return nome;
+            }
+            set
+            {
+                nome = value;
+                
+            }
+        }
+
     }
 }

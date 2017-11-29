@@ -15,7 +15,7 @@ namespace Contatos.Pages
     public partial class EventoListaPage : ContentPage
     {
 
-        private EventoViewModelMem vm;
+        private EventoViewModel vm;
 
         public EventoListaPage()
         {
@@ -25,36 +25,41 @@ namespace Contatos.Pages
         private void Inicializar()
         {
             // Instanciar a viewmodel
-            vm = new EventoViewModelMem();
+            vm = new EventoViewModel();
+
+            //vincular a vm com a pagina
+            BindingContext = vm;
 
             // Definir a fonte de dados da lista
-            ListaEdicao.ItemsSource = vm.Lista;
-            // Criar registros de teste
-            var e1 = new Evento()
-            {
-                Nome = "Fulano",
-                Local = "Rua Nilo Aldo Zechin - 2221 - Mirassol",
-                Anotacoes = "Primeiro app"
-            };
-            // Adicionar item na lista
-            vm.Salvar(e1);
+            lvEdicao.ItemsSource = vm.Lista;
+
+            //// Definir a fonte de dados da lista
+            //ListaEdicao.ItemsSource = vm.Lista;
+            //// Criar registros de teste
+            //var e1 = new Evento()
+            //{
+            //    Nome = "Fulano",
+            //    Local = "Rua Nilo Aldo Zechin - 2221 - Mirassol",
+            //    Anotacoes = "Primeiro app"
+            //};
+            //// Adicionar item na lista
+            //vm.Salvar(e1);
 
         }
 
-        private async void tbiNovo_Clicked(object sender, EventArgs e)
+        private void tbiNovo_Clicked(object sender, EventArgs e)
         {
             // Obter o objeto selecionado
             var evento = new Evento();
 
             // Criar a página de edição
             var pagina = new EventoEdicaoPage();
+
             // Definir o binding    
             pagina.BindingContext = evento;
-            // Atribuir a viewmodel
-            pagina.ViewModel = vm;
-
-            // Chamar a página
-            await Navigation.PushAsync(pagina);
+            // Atribuir os eventos
+            pagina.Salvando += SalvarHandler;
+            
         }
         private async void ListaEdicao_ItemTapped(object sender, ItemTappedEventArgs e)
         {
@@ -65,12 +70,49 @@ namespace Contatos.Pages
             var pagina = new EventoEdicaoPage();
             // Definir o binding
             pagina.BindingContext = evento;
-            // Atribuir a viewmodel
-            pagina.ViewModel = vm;
+
+            // Atribuir os eventos
+            pagina.Salvando += SalvarHandler;
+            pagina.Excluindo += ExcluirHandler;
 
             // Chamar a página
             await Navigation.PushAsync(pagina);
 
+
+        }
+        private async void SalvarHandler(object sender, ItemEventArgs e)
+        {
+            //Obter o item passado como parametro
+            var item = (e.Item as Evento);
+
+            var resultado = await vm.Salvar(item);
+
+            //verificar o resultado da execucao
+            if (resultado.Sucesso)
+            {
+                await DisplayAlert("Sucesso", "Operação realizada com sucesso", "Fechar");
+                await Navigation.PopAsync();
+            }
+            else
+                await DisplayAlert("Erro", resultado.Mensagem, "Fechar");
+        }
+
+        private async void ExcluirHandler(object sender, ItemEventArgs e)
+        {
+
+            //Obter o item passado como parametro
+            var item = (e.Item as Evento);
+
+            var resultado = await vm.Excluir(item);
+
+            //verificar o resultado da execucao
+            if (resultado.Sucesso)
+            {
+                await DisplayAlert("Sucesso", "Operação realizada com sucesso", "Fechar");
+                await Navigation.PopAsync();
+            }
+            else
+                await DisplayAlert("Erro", resultado.Mensagem, "Fechar");
 
         }
     }

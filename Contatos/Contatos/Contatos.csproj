@@ -48,6 +48,7 @@
     <Compile Include="Data\UsuarioRepository.cs" />
     <Compile Include="Helpers\CameraHelper.cs" />
     <Compile Include="IFileHelper.cs" />
+    <Compile Include="ItemEventArgs.cs" />
     <Compile Include="Models\Evento.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Pessoa.cs" />
@@ -87,8 +88,11 @@
     <Compile Include="UserControls\PainelUC.xaml.cs">
       <DependentUpon>PainelUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\EventoViewModel.cs" />
     <Compile Include="ViewModels\EventoViewModelMem.cs" />
+    <Compile Include="ViewModels\PessoaViewModel.cs" />
     <Compile Include="ViewModels\PessoaViewModelMem.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">

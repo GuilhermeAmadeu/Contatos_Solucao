@@ -11,23 +11,27 @@ namespace Contatos.Data
     {
         public async Task<Pessoa> SelecionarAsync(int id)
         {
-            //localizar pela chave primaria
+            // Localizar pela chave primária
             return await Conexao.FindAsync<Pessoa>(id);
         }
 
         public async Task<List<Pessoa>> ListarAsync()
         {
-            //listar todos os registros cadastrados
+            // Listar todos os registros cadastrados
             return await Conexao.Table<Pessoa>().ToListAsync();
         }
 
-        public async Task<List<Pessoa>> PesquisaAsync(string conteudo)
+        public async Task<List<Pessoa>> PesquisarAsync(string conteudo)
         {
-            //filtrar os registros
+            // Filtrar os registros
             return await Conexao.Table<Pessoa>()
-                .Where(r => r.Nome.Contains(conteudo) || r.Email.Contains(conteudo) || r.Telefone.Contains(conteudo)).ToListAsync();
+                .Where(r =>
+                    r.Nome.Contains(conteudo) ||
+                    r.Email.Contains(conteudo) ||
+                    r.Telefone.Contains(conteudo))
+                .ToListAsync();
+        }
 
-        }      
         public async Task<ResultadoOperacao> SalvarAsync(Pessoa item)
         {
             var resultado = new ResultadoOperacao()
@@ -35,23 +39,24 @@ namespace Contatos.Data
                 Sucesso = true
             };
 
-            //executar o comando para salvar
+            // Executar o comando para salvar
             try
             {
                 var qtd = await Conexao.InsertOrReplaceAsync(item);
 
-                //verifica se incluiu /alterou
+                // Verificar se incluiu / alterou
                 if (qtd == 0)
                 {
                     resultado.Sucesso = false;
-                    resultado.Mensagem = "Não foi possivel salvar!";
+                    resultado.Mensagem = "Não foi possível salvar!";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 resultado.Sucesso = false;
                 resultado.Mensagem = ex.Message;
             }
+
             return resultado;
         }
 
@@ -62,16 +67,16 @@ namespace Contatos.Data
                 Sucesso = true
             };
 
-            //executar o comando para excluir
+            // Executar o comando para excluir
             try
             {
                 var qtd = await Conexao.DeleteAsync(item);
 
-                //verifica se incluiu /alterou
+                // Verificar se incluiu / alterou
                 if (qtd == 0)
                 {
                     resultado.Sucesso = false;
-                    resultado.Mensagem = "Não foi possivel excluir!";
+                    resultado.Mensagem = "Não foi possível excluir!";
                 }
             }
             catch (Exception ex)
@@ -79,6 +84,7 @@ namespace Contatos.Data
                 resultado.Sucesso = false;
                 resultado.Mensagem = ex.Message;
             }
+
             return resultado;
         }
     }

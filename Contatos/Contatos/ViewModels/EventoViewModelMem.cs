@@ -20,18 +20,25 @@ namespace Contatos.ViewModels
         public void Salvar(Evento item)
         {
             // Se o Id for 0, então é um novo registro
-            if (item.Id == 0)
-            {
-                item.Id = DateTime.Now.Minute + DateTime.Now.Day;
-                Lista.Add(item);
-            }
-            else
+            //if (item.Id == 0)
+            //{
+            //    item.Id = DateTime.Now.Minute + DateTime.Now.Day;
+            //    Lista.Add(item);
+            //}
+            //else
             {
                 // Localizar o item existente
                 var existente = Lista.Where(r => r.Id == item.Id)
                     .FirstOrDefault();
 
-                
+                if (existente != null)
+                {
+                    // Remover e acrescentar
+                    Lista.Remove(existente);
+                    Lista.Add(item);
+
+                }
+
             }
         }
     }

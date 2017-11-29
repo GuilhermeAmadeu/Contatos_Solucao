@@ -21,7 +21,7 @@ namespace Contatos.Data
             return await Conexao.Table<Evento>().ToListAsync();
         }
 
-        public async Task<List<Evento>> PesquisaAsync(string conteudo)
+        public async Task<List<Evento>> PesquisarAsync(string conteudo)
         {
             //filtrar os registros
             return await Conexao.Table<Evento>()
@@ -55,6 +55,7 @@ namespace Contatos.Data
             return resultado;
         }
 
+       
         public async Task<ResultadoOperacao> ExcluirAsync(Evento item)
         {
             var resultado = new ResultadoOperacao()

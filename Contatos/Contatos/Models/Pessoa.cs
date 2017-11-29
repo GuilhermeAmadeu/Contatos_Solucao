@@ -1,4 +1,9 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace Contatos.Models
@@ -6,14 +11,14 @@ namespace Contatos.Models
     public class Pessoa : INotifyPropertyChanged
     {
         // Declarar os campos internos
-        private int id;
+        private Guid id;
         private string nome;
         private string email;
         private string telefone;
         private string observacao;
 
         // Declarar as propriedades
-        public int Id
+        public Guid Id
         {
             get
             {
