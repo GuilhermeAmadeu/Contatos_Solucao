@@ -25,11 +25,11 @@ namespace Contatos.Models
         {
             get
             {
-                return Id;
+                return id;
             }
             set
             {
-                Id = value;
+                id = value;
                 OnPropertyChanged();
             }
         }
@@ -39,11 +39,11 @@ namespace Contatos.Models
         {
             get
             {
-                return Nome;
+                return nome;
             }
             set
             {
-                Nome = value;
+                nome = value;
                 OnPropertyChanged();
             }
         }
@@ -53,11 +53,11 @@ namespace Contatos.Models
         {
             get
             {
-                return Local;
+                return local;
             }
             set
             {
-                Local = value;
+                local = value;
                 OnPropertyChanged();
             }
         }

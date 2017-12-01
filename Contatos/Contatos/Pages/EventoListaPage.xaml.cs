@@ -49,17 +49,22 @@ namespace Contatos.Pages
 
         private void tbiNovo_Clicked(object sender, EventArgs e)
         {
-            // Obter o objeto selecionado
-            var evento = new Evento();
+            // Criar o objeto de binding
+            var item = vm.Novo();
 
             // Criar a página de edição
             var pagina = new EventoEdicaoPage();
 
-            // Definir o binding    
-            pagina.BindingContext = evento;
+            // Definir o binding
+            pagina.BindingContext = item;
+
             // Atribuir os eventos
             pagina.Salvando += SalvarHandler;
-            
+
+            // Chamar a página
+            await Navigation.PushAsync(pagina);
+
+
         }
         private async void ListaEdicao_ItemTapped(object sender, ItemTappedEventArgs e)
         {

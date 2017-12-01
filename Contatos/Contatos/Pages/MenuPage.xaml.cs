@@ -26,20 +26,20 @@ namespace Contatos.Pages
         private void ListarMenu()
         {
             // Cria uma lista de menus
-            List<Menu> listaMenu = new List<Menu>();
+            List<OpcaoMenu> listaMenu = new List<OpcaoMenu>();
             // Adiciona um menu na lista
-            listaMenu.Add( new Menu()
+            listaMenu.Add( new OpcaoMenu()
             {
                 Titulo = "Contatos",
                 Imagem = "ic_chevron_right.png",
                 Pagina = typeof(PessoaListaPage)
             });
-            listaMenu.Add(new Menu {
+            listaMenu.Add(new OpcaoMenu {
                 Titulo = "Eventos",
                 Imagem = "ic_chevron_right.png",
                 Pagina = typeof(EventoListaPage)
             });
-            listaMenu.Add(new Menu
+            listaMenu.Add(new OpcaoMenu
             {
                 Titulo = "Usuario",
                 Imagem = "ic_chevron_right.png",
@@ -56,7 +56,7 @@ namespace Contatos.Pages
         private async void LvMenu_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             // Pega o elemento selecionado e faz a conversão
-            Menu menuItem = e.SelectedItem as Menu;
+            OpcaoMenu menuItem = e.SelectedItem as OpcaoMenu;
 
             // Verifica se veio um menu selecionado
             if (menuItem != null)

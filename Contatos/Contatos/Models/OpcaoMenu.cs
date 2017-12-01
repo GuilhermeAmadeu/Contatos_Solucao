@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Contatos.Models
 {
-    public class Menu
+    public class OpcaoMenu
     {
         public string Titulo { get; set; }
         public string Imagem { get; set; }
