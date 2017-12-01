@@ -24,47 +24,92 @@
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
-                            <!--Definir colunas-->
+                        <!--Definir colunas-->
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-
-
-                                <Label x:Name="lblNome"
+                        <Label x:Name="lblNome"
                            Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
                            Text="Nome"/>
-                                        <Entry x:Name="txtNome"
+                        <Entry x:Name="txtNome"
                            Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                            Placeholder="Digite o nome"
                            Text="{Binding Nome}"/>
-
-                                        <Label x:Name="lblEmail"
+                        <Label x:Name="lblEmail"
                            Grid.Row="2" Grid.Column="0" 
                            Text="E-mail"/>
-                                        <Entry x:Name="txtEmail"
+                        <Entry x:Name="txtEmail"
                            Grid.Row="3" Grid.Column="0" 
                            Placeholder="Digite o e-mail"
                            Text="{Binding Email}"/>
-
-                                        <Label x:Name="lblTelefone" 
+                        <Label x:Name="lblTelefone" 
                            Grid.Row="2" Grid.Column="1" 
                            Text="Telefone"/>
-                                        <Entry x:Name="txtTelefone"
+                        <Entry x:Name="txtTelefone"
                            Grid.Row="3" Grid.Column="1" 
                            Placeholder="Digite o telefone"
                            Text="{Binding Telefone}"/>
-
-                                        <Label x:Name="lblObservacao" 
+                        <Label x:Name="lblObservacao" 
                            Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
                            Text="Observação"/>
-                                        <Editor x:Name="txtObservacao"
+                        <Editor x:Name="txtObservacao"
                             Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                             HeightRequest="80"
                             Text="{Binding Observacao}"/>
+                        <Label x:Name="lblDataNascimento"
+                               Grid.Row="6" Grid.Column="0"
+                               Text="Data de Nascimento"/>
+                        <DatePicker x:Name="dpDataNascimento"
+                                    Grid.Row="7" Grid.Column="0"
+                                    Date="{Binding DataNascimento}"/>
+                        <Label x:Name="lblCep"
+                               Grid.Row="6" Grid.Column="1"
+                               Text="CEP"/>
+                        <Entry x:Name="txtCep"
+                               Grid.Row="7" Grid.Column="1"
+                               Text="{Binding Cep}"
+                               Unfocused="txtCep_Unfocused"/>
+                        <Label x:Name="lblEndereco"
+                               Grid.Row="8" Grid.Column="0"
+                               Text="Endereço"/>
+                        <Entry x:Name="txtEndereco"
+                               Grid.Row="9" Grid.Column="0"
+                               Text="{Binding Endereco}"/>
+                        <Label x:Name="lblNumero"
+                               Grid.Row="8" Grid.Column="1"
+                               Text="Numero"/>
+                        <Entry x:Name="txtNumero"
+                               Grid.Row="9" Grid.Column="1"
+                               Text="{Binding Numero}"/>
+                        <Label x:Name="lblBairro"
+                               Grid.Row="10" Grid.Column="0"
+                               Text="Bairro"/>
+                        <Entry x:Name="txtBairro"
+                               Grid.Row="11" Grid.Column="0"
+                               Text="{Binding Bairro}"/>
+                        <Label x:Name="lblCidade"
+                               Grid.Row="10" Grid.Column="1"
+                               Text="Cidade"/>
+                        <Entry x:Name="txtCidade"
+                               Grid.Row="11" Grid.Column="1"
+                               Text="{Binding Cidade}"/>
+                        <Label x:Name="lblUf"
+                               Grid.Row="12" Grid.Column="0"
+                               Text="UF"/>
+                        <Entry x:Name="txtUf"
+                               Grid.Row="13" Grid.Column="0"
+                               Text="{Binding Uf}"/>
                     </Grid>
                 </ScrollView>
             </usercontrols:FormularioUc.Conteudo>

@@ -17,7 +17,16 @@ namespace Contatos.Models
         private string telefone;
         private string observacao;
 
+        private DateTime datanascimento;
+        private string cep;
+        private string endereco;
+        private string numero;
+        private string bairro;
+        private string cidade;
+        private string uf;
+
         // Declarar as propriedades
+        
         public Guid Id
         {
             get
@@ -45,7 +54,8 @@ namespace Contatos.Models
             }
         }
 
-        public string Email {
+        public string Email
+        {
             get
             {
                 return email;
@@ -57,7 +67,8 @@ namespace Contatos.Models
             }
         }
 
-        public string Telefone {
+        public string Telefone
+        {
             get
             {
                 return telefone;
@@ -69,7 +80,8 @@ namespace Contatos.Models
             }
         }
 
-        public string Observacao {
+        public string Observacao
+        {
             get
             {
                 return observacao;
@@ -81,6 +93,97 @@ namespace Contatos.Models
             }
         }
 
+        public DateTime Ddatanascimento
+        {
+            get
+            {
+                return datanascimento;
+            }
+            set
+            {
+                datanascimento = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Cep
+        {
+            get
+            {
+                return cep;
+            }
+            set
+            {
+                cep = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Endereco
+        {
+            get
+            {
+                return endereco;
+            }
+            set
+            {
+                endereco = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Numero
+        {
+            get
+            {
+                return numero;
+            }
+            set
+            {
+                numero = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Bairro
+        {
+            get
+            {
+                return bairro;
+            }
+            set
+            {
+                bairro = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Cidade
+        {
+            get
+            {
+                return cidade;
+            }
+            set
+            {
+                cidade = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Uf
+        {
+            get
+            {
+                return uf;
+            }
+            set
+            {
+                uf = value;
+                OnPropertyChanged();
+            }
+        }
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         // Método para registrar a alteração da propriedade

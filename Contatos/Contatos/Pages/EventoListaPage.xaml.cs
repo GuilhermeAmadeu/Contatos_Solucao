@@ -47,7 +47,7 @@ namespace Contatos.Pages
 
         }
 
-        private void tbiNovo_Clicked(object sender, EventArgs e)
+        private async void tbiNovo_Clicked(object sender, EventArgs e)
         {
             // Criar o objeto de binding
             var item = vm.Novo();

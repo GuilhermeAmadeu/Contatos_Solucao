@@ -1,4 +1,5 @@
 ﻿using Contatos.Models;
+using Contatos.Services;
 using Contatos.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,32 @@ namespace Contatos.Pages
             // Retornar para a página anterior
             await Navigation.PopAsync();
         }
+
         
+        private async void txtCep_Unfocused(object sender, FocusEventArgs e)
+        {
+            //verificr a quantidade de caracteres do cep 
+            if (txtCep.Text.Length < 8)
+            {
+                return;
+            }
+
+            //instanciar o servico de endereco
+            var es = new EnderecoService();
+            var endereco = await es.Pesquisar(txtCep.Text);
+            //verificar se retornnou com sucesso
+            if (es.Resultado.Sucesso == true)
+            {
+                txtEndereco.Text = endereco.Logradouro;
+                txtBairro.Text = endereco.Bairro;
+                txtCidade.Text = endereco.Localidade;
+                txtUf.Text = endereco.Uf;
+            }
+            else
+            {
+                //exibir menssagem de erro
+                await DisplayAlert("Erro", es.Resultado.Mensagem, "Fechar");
+            }
+        }
     }
 }
