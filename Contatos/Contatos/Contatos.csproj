@@ -42,6 +42,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Constantes.cs" />
     <Compile Include="Data\EventoRepository.cs" />
     <Compile Include="Data\PessoaRepository.cs" />
     <Compile Include="Data\RepositoyBase.cs" />
@@ -84,6 +85,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultadoOperacao.cs" />
     <Compile Include="Services\EnderecoService.cs" />
+    <Compile Include="Services\EventoService.cs" />
+    <Compile Include="Services\PessoaService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
     <Compile Include="UserControls\FormularioUc.xaml.cs">
       <DependentUpon>FormularioUc.xaml</DependentUpon>
