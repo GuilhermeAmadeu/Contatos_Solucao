@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Net.Http;
+using Contatos.Models;
 
 namespace Contatos.Services
 {
-    public async class EventoService
-    {
         public class EventoService : ServiceBase
         {
             public EventoService() : base()
@@ -15,10 +16,10 @@ namespace Contatos.Services
                 //definir o endereço do cliente 
                 cliente.BaseAddress = new Uri(string.Format(Constantes.URL_SERVICO, "pessoaapi"));
             }
-            public async Task<List<Pessoa>> PesquisarAsync(string conteudo)
+            public async Task<List<Evento>> PesquisarAsync(string conteudo)
             {
                 //itens que serão retornados pela pesquisa 
-                var itens = new List<Pessoa>();
+                var itens = new List<Evento>();
 
                 //Instanciar o resultado da operacao 
                 Resultado = new ResultadoOperacao()
