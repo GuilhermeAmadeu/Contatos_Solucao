@@ -8,7 +8,7 @@
 
             <usercontrols:FormularioUc.Cabecalho>
                 <Label Text="Eventos" 
-                       HorizontalOptions="StartAndExpand"
+                       HorizontalOptions="CenterAndExpand"
                        VerticalOptions="CenterAndExpand"/>
                        
             </usercontrols:FormularioUc.Cabecalho>
