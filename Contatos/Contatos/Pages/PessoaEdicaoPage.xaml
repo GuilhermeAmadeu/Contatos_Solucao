@@ -3,6 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:usercontrols="clr-namespace:Contatos.UserControls"
              x:Class="Contatos.Pages.PessoaEdicaoPage">
+
+
+    <!-- Definir a barra de ferramentas -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="tbiExcluir"
+                     Order="Primary"
+                     Text="Excluir"
+                     Icon="ic_close.png"
+                     Priority="0"
+                     Clicked="tbiExcluir_Clicked"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <usercontrols:FormularioUc>
 

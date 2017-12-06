@@ -21,6 +21,9 @@ namespace Contatos.Pages
             InitializeComponent();
 
             Inicializar();
+
+            //executar a pesquisa inicial
+            Pesquisar();
         }
 
         private void Inicializar()
@@ -31,8 +34,8 @@ namespace Contatos.Pages
             //vincular a vm com a pagina
             BindingContext = vm;
 
-            // Definir a fonte de dados da lista
-            lvPessoa.ItemsSource = vm.Lista;
+            //// Definir a fonte de dados da lista
+            //lvPessoa.ItemsSource = vm.Lista;
 
             // Criar registros de teste
             //var p1 = new Pessoa()
@@ -103,6 +106,14 @@ namespace Contatos.Pages
 
         private async void ExcluirHandler(object sender, ItemEventArgs e)
         {
+            //solicitar confirmação
+            var acao = await DisplayActionSheet("Confirma a exclusão?", "Cancelar", null, "Sim", "Não");
+
+            //verificar se a ação é diferente de sim
+            if(acao!= "Sim")
+            {
+                return;
+            }
 
             //Obter o item passado como parametro
             var item = (e.Item as Pessoa);

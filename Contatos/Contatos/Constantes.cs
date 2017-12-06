@@ -9,7 +9,7 @@ namespace Contatos
     public static class Constantes
     {
         //url do serviço
-        public const string URL_SERVICO = "http://localhost:?/api/";
+        public const string URL_SERVICO = "http://localhost:2502/api/"; // alterar conforme a url
         public const string CONTEUDO_JSON = "application/json";
         public const string MENSAGEM_SALVO_SUCESSO ="Item salvo com sucesso.";
         public const string MENSAGEM_ERRO_SALVAR ="Erro ao salvar o item:{0}.";

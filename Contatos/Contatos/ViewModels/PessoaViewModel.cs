@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using Contatos.Data;
 using Contatos.Models;
+using Contatos.Services;
 
 namespace Contatos.ViewModels
 {
@@ -13,10 +14,11 @@ namespace Contatos.ViewModels
     {
         // Criar o repositório
         private PessoaRepository rep = new PessoaRepository();
+        private PessoaService srv = new PessoaService();
 
         // Criar campo da lista
         private ObservableCollection<Pessoa> lista = new ObservableCollection<Pessoa>();
-            
+
         // Criar a propriedade da lista
         public ObservableCollection<Pessoa> Lista
         {
@@ -37,7 +39,11 @@ namespace Contatos.ViewModels
         // Método para instanciar novo item
         public Pessoa Novo()
         {
-            var item = new Pessoa();
+            var item = new Pessoa()
+            {
+                IdUsuario = 1, //Modificar depois
+                Datanascimento = DateTime.Today
+            };
 
             return item;
         }
@@ -76,7 +82,8 @@ namespace Contatos.ViewModels
                     Lista.Add(item);
                 }
 
-                // Continuará no futuro
+                //executar a chamada para o serviço
+                await srv.SalvarAsync(item, novo);
             }
 
             return resultado;
@@ -87,14 +94,24 @@ namespace Contatos.ViewModels
         {
             ResultadoOperacao resultado = null;
 
-            // Excliuir do repositório
-            resultado = await rep.ExcluirAsync(item);
+            //chamar o serviço para excluir
+            await srv.ExcluirAsync(item);
 
-            // Se houve sucesso na exclusão
+            //obter resultado da conexao
+            resultado = srv.Resultado;
+
+            //verificar se foi excluido com sucesso
             if (resultado.Sucesso)
             {
-                // Remover da lista
-                Lista.Remove(item);
+                // Excliuir do repositório
+                resultado = await rep.ExcluirAsync(item);
+
+                // Se houve sucesso na exclusão
+                if (resultado.Sucesso)
+                {
+                    // Remover da lista
+                    Lista.Remove(item);
+                }
             }
 
             return resultado;

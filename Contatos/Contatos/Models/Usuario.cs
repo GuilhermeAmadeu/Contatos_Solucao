@@ -21,9 +21,7 @@ namespace Contatos.Models
             set
             {
                 nome = value;
-                
             }
         }
-
     }
 }

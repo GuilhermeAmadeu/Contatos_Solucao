@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using SQLite;
 
 namespace Contatos.Models
 {
@@ -25,8 +26,10 @@ namespace Contatos.Models
         private string cidade;
         private string uf;
 
+        public int IdUsuario { get; set; }
+
         // Declarar as propriedades
-        
+        [PrimaryKey()]
         public Guid Id
         {
             get
@@ -93,7 +96,7 @@ namespace Contatos.Models
             }
         }
 
-        public DateTime Ddatanascimento
+        public DateTime Datanascimento
         {
             get
             {
@@ -183,6 +186,8 @@ namespace Contatos.Models
                 OnPropertyChanged();
             }
         }
+
+        
         
         public event PropertyChangedEventHandler PropertyChanged;
 

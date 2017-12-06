@@ -22,5 +22,14 @@ namespace Contatos.Services
             //definir o tamanho do buffer
             cliente.MaxResponseContentBufferSize = 256000;
         }
+
+        protected void AdicionarToken()
+        {
+            var token = "";
+            token = "de880996-93a5-4f63-a8a8-7bfa9a577704";
+
+            //Definir o token no cabecalho da requisicao
+            cliente.DefaultRequestHeaders.Add("token", token);
+        }
     }
 }

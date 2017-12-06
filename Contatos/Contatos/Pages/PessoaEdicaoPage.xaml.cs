@@ -80,5 +80,11 @@ namespace Contatos.Pages
                 await DisplayAlert("Erro", es.Resultado.Mensagem, "Fechar");
             }
         }
+
+        private void tbiExcluir_Clicked(object sender, EventArgs e)
+        {
+            //chamar o evento de exclusao
+            Excluindo?.Invoke(sender, new ItemEventArgs(BindingContext));
+        }
     }
 }

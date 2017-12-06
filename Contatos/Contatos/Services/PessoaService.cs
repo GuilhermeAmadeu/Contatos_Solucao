@@ -13,8 +13,11 @@ namespace Contatos.Services
     {
         public PessoaService() : base()
         {
+            //adicionar o token para a requisicao
+            AdicionarToken();
+
             //definir o endereço do cliente 
-            cliente.BaseAddress = new Uri(string.Format(Constantes.URL_SERVICO, "pessoaapi"));
+            cliente.BaseAddress = new Uri(Constantes.URL_SERVICO + "pessoaapi");
         }
         public async Task<List<Pessoa>> PesquisarAsync(string conteudo)
         {
