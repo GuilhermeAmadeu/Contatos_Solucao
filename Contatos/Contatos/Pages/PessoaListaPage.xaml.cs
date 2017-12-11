@@ -106,31 +106,44 @@ namespace Contatos.Pages
 
         private async void ExcluirHandler(object sender, ItemEventArgs e)
         {
-            //solicitar confirmação
-            var acao = await DisplayActionSheet("Confirma a exclusão?", "Cancelar", null, "Sim", "Não");
+            // Solicitar confirmação
+            var acao = await DisplayActionSheet("Confirma a exclusão?",
+                "Cancelar", null, "Sim", "Não");
 
-            //verificar se a ação é diferente de sim
-            if(acao!= "Sim")
+            // Verificar se a ação é diferente de Sim
+            if (acao != "Sim")
             {
                 return;
             }
 
-            //Obter o item passado como parametro
+            // Obter o item passado como parâmetro
             var item = (e.Item as Pessoa);
 
+            // Executar a rotina de excluir
             var resultado = await vm.Excluir(item);
 
-            //verificar o resultado da execucao
+            // Verificar o resultado da execução
             if (resultado.Sucesso)
             {
-                await DisplayAlert("Sucesso", "Operação realizada com sucesso", "Fechar");
+                await DisplayAlert("Sucesso", "Operação realizada com sucesso!",
+                    "Fechar");
                 await Navigation.PopAsync();
             }
             else
+            {
                 await DisplayAlert("Erro", resultado.Mensagem, "Fechar");
-
+            }
         }
 
+        private void txtPesquisa_SearchButtonPressed(object sender, EventArgs e)
+        {
+            Pesquisar();
+        }
+
+        private async void Pesquisar()
+        {
+            await vm.Pesquisar();
+        }
 
     }
 }

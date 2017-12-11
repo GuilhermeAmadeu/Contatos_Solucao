@@ -17,12 +17,19 @@
 
 
     <ContentPage.Content>
-        <!--o titulo q fica em cima da lista-->
         <StackLayout Padding="10">
             <StackLayout HorizontalOptions="FillAndExpand">
                 <Label Text="Lista de Pessoas" />
 
-                <ListView x:Name="lvPessoa" ItemTapped="lvPessoa_ItemTapped">
+                <SearchBar x:Name="txtPesquisa"
+                           Placeholder="Digite o conteúdo"
+                           Text="{Binding ConteudoPesquisa}"
+                           SearchButtonPressed="txtPesquisa_SearchButtonPressed"/>
+
+                <ListView x:Name="lvPessoa"
+                          HasUnevenRows="True"
+                          ItemsSource="{Binding Lista}"
+                          ItemTapped="lvPessoa_ItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -36,6 +43,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

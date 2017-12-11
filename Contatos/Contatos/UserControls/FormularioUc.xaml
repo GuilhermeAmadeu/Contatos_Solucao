@@ -3,12 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Contatos.UserControls.FormularioUc">
   <ContentView.Content>
-        <Grid Style="{DynamicResource backStyle}">
-            <Grid ColumnSpacing="0"/>
+        <Grid ColumnSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="auto" />                
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -18,38 +17,38 @@
             <ContentView x:Name="cvCabecalho"
                          Grid.Row="0" Grid.Column="0"
                          VerticalOptions="StartAndExpand"
-                         HeightRequest="32">
-
-            <Label x:Name="lblTitulo"
+                         HorizontalOptions="FillAndExpand"
+                         HeightRequest="48"
+                         Style="{DynamicResource formularioStyle}">
+                <Label x:Name="lblTitulo"
                        VerticalOptions="CenterAndExpand"
                        HorizontalOptions="FillAndExpand"
                        Style="{DynamicResource tituloStyle}"/>
             </ContentView>
             <ContentView x:Name="cvCabecalhoItens"
                          Grid.Row="0" Grid.Column="1" 
+                         HeightRequest="48"
                          VerticalOptions="StartAndExpand"
-                         HorizontalOptions="FillAndExpand">
-                                         
+                         HorizontalOptions="FillAndExpand"
+                         Style="{DynamicResource formularioStyle}">
+
             </ContentView>
 
             <ContentView x:Name="cvConteudo"
                          Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                          VerticalOptions="FillAndExpand"
-                         HorizontalOptions="FillAndExpand"
-                         Style="{DynamicResource formularioStyle}"> 
-                          
-                
+                         HorizontalOptions="FillAndExpand">
             </ContentView>
 
             <ContentView x:Name="cvRodape"
                          Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
-                         VerticalOptions="End">
-
+                         VerticalOptions="End"
+                         Style="{DynamicResource formularioStyle}">
             </ContentView>
-            
+
 
 
         </Grid>
 
-  </ContentView.Content>
+    </ContentView.Content>
 </ContentView>

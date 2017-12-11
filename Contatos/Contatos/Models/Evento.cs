@@ -10,30 +10,20 @@ namespace Contatos.Models
 {
     public class Evento : INotifyPropertyChanged
     {
-        private Guid id;
+        // Declarar os campos internos
         private string nome;
         private string local;
-        private DateTime data;
-        private TimeSpan horainicio;
-        private TimeSpan horatermino;
-        private string anotacoes;
+        private DateTime datahorainicio;
+        private DateTime datahoratermino;
         private string status;
+        private Guid idparticipante;
+        private string anotacoes;
 
-        
+        // Declarar as propriedades
+        [PrimaryKey()]
+        public Guid Id { get; set; }
 
-        public Guid Id
-        {
-            get
-            {
-                return id;
-            }
-            set
-            {
-                id = value;
-                OnPropertyChanged();
-            }
-        }
-        
+        public int IdUsuario { get; set; }
 
         public string Nome
         {
@@ -44,10 +34,10 @@ namespace Contatos.Models
             set
             {
                 nome = value;
+                // Informar a alteração na propriedade
                 OnPropertyChanged();
             }
         }
-                                
 
         public string Local
         {
@@ -61,60 +51,33 @@ namespace Contatos.Models
                 OnPropertyChanged();
             }
         }
-        
 
-        public DateTime Data
+        public DateTime DataHoraInicio
         {
             get
             {
-                return data;
+                return datahorainicio;
             }
             set
             {
-                data = value;
+                datahorainicio = value;
                 OnPropertyChanged();
             }
         }
-        
-        public TimeSpan HoraInicio
+
+        public DateTime DataHoraTermino
         {
             get
             {
-                return horainicio;
+                return datahoratermino;
             }
             set
             {
-                horainicio = value;
+                datahoratermino = value;
                 OnPropertyChanged();
             }
         }
-        
-        public TimeSpan HoraTermino
-        {
-            get
-            {
-                return horatermino;
-            }
-            set
-            {
-                horatermino = value;
-                OnPropertyChanged();
-            }
-        }
-        
-        public string Anotacoes
-        {
-            get
-            {
-                return anotacoes;
-            }
-            set
-            {
-                anotacoes = value;
-                OnPropertyChanged();
-            }
-        }
-        
+
         public string Status
         {
             get
@@ -128,16 +91,38 @@ namespace Contatos.Models
             }
         }
 
+        public Guid IdParticipante
+        {
+            get
+            {
+                return idparticipante;
+            }
+            set
+            {
+                idparticipante = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Anotacoes
+        {
+            get
+            {
+                return anotacoes;
+            }
+            set
+            {
+                anotacoes = value;
+                OnPropertyChanged();
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        // Método para registrar a alteração da propriedade
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            // Disparar o evento
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 
 }

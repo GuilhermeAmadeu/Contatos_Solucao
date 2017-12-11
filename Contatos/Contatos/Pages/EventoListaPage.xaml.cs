@@ -90,6 +90,7 @@ namespace Contatos.Pages
             //Obter o item passado como parametro
             var item = (e.Item as Evento);
 
+            // Executar a rotina de salvar
             var resultado = await vm.Salvar(item);
 
             //verificar o resultado da execucao

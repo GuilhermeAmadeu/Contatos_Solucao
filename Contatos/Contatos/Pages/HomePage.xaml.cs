@@ -18,6 +18,7 @@ namespace Contatos.Pages
             //Seta as paginas TabbedPage
             var tab1 = new EventoListaPage() { Title = "Eventos" , Icon = "ic_map.png" };
             var tab2 = new PessoaListaPage() { Title = "Pessoas" , Icon = "ic_phone.png" };
+            // Adiciona o elemento dentro da pagina tabbed
             this.Children.Add(tab1);
             this.Children.Add(tab2);
         }

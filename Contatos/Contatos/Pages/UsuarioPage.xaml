@@ -17,8 +17,10 @@
             </usercontrols:FormularioUc.Conteudo>
 
             <usercontrols:FormularioUc.Rodape>
-                <StackLayout Margin="20"
-                     VerticalOptions="StartAndExpand">
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="CenterAndExpand"
+                             Margin="0"
+                             Padding="8">
                     <Button x:Name="btnConfirmar"
                             Text="Confirmar"/>
                     <Button x:Name="btnCancelar"
