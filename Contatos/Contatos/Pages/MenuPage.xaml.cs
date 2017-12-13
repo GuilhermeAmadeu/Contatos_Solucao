@@ -45,6 +45,12 @@ namespace Contatos.Pages
                 Imagem = "ic_chevron_right.png",
                 Pagina = typeof(UsuarioPage)
             });
+            listaMenu.Add(new OpcaoMenu
+            {
+                Titulo = "Anotações",
+                Imagem = "ic_chevron_right.png",
+                Pagina = typeof(AnotacaoListaPage)
+            });
 
             // Adiciona a lista no controle listview
             lvMenu.ItemsSource = listaMenu;

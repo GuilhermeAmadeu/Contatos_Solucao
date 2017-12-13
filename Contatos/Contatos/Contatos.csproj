@@ -50,11 +50,18 @@
     <Compile Include="Helpers\CameraHelper.cs" />
     <Compile Include="IFileHelper.cs" />
     <Compile Include="ItemEventArgs.cs" />
+    <Compile Include="Models\Anotacao.cs" />
     <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\Evento.cs" />
     <Compile Include="Models\OpcaoMenu.cs" />
     <Compile Include="Models\Pessoa.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Pages\AnotacaoEdicaoPage.xaml.cs">
+      <DependentUpon>AnotacaoEdicaoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AnotacaoListaPage.xaml.cs">
+      <DependentUpon>AnotacaoListaPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CameraPage.xaml.cs">
       <DependentUpon>CameraPage.xaml</DependentUpon>
     </Compile>
@@ -88,12 +95,15 @@
     <Compile Include="Services\EventoService.cs" />
     <Compile Include="Services\PessoaService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="Services\ServicoGenerico.cs" />
+    <Compile Include="SessaoHelper.cs" />
     <Compile Include="UserControls\FormularioUc.xaml.cs">
       <DependentUpon>FormularioUc.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\PainelUC.xaml.cs">
       <DependentUpon>PainelUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\AnotacaoViewModel.cs" />
     <Compile Include="ViewModels\EventoViewModel.cs" />
     <Compile Include="ViewModels\EventoViewModelMem.cs" />
     <Compile Include="ViewModels\PessoaViewModel.cs" />
@@ -252,6 +262,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\AnotacaoEdicaoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\AnotacaoListaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.4.0.282\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.4.0.282\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
